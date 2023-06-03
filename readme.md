@@ -22,3 +22,8 @@ Quando recebemos os dados temos diversos campos que não são do nosso interesse
 * track: string com o nome da musica
 * popularity: int com o valor de popularidade da musica
 Além disso inseri uma etapa para verificar se temos algum erro no campo played_at ou se existe algo nulo nos nossos dados
+
+## Inserção dos dados
+
+Usando o Sqlite3 e o sqlalchemy inserimos os dados em um arquivo db e salvamos no diretorio do projeto com o nome spotify.db.
+Com isso encerramos o fluxo básico de ETL, agora podemos automatizar isso para alimentarmos nosso banco por meio do Airflow.
