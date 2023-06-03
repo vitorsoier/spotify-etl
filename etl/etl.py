@@ -1,3 +1,4 @@
+import pandas as pd
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from datetime import datetime, timedelta
@@ -41,10 +42,18 @@ def transaform(raw_data):
                 "popularity": info["track"]["popularity"],
             }
         )
-    return data
+    df = pd.DataFrame(data)
+
+    # data validation
+    if not df["played_at"].is_unique:
+        raise Exception("Valor de data não é unico")
+    if df.isnull().values.any():
+        raise Exception("Valor nulo")
+
+    return df
 
 
-date = datetime.today() - timedelta(days=1)
+date = datetime.today() - timedelta(days=2)
 raw_data = extract(date)
-data = transaform(raw_data)
-print(data)
+df = transaform(raw_data)
+print(df)
