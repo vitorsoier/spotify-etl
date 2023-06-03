@@ -21,3 +21,4 @@ Quando recebemos os dados temos diversos campos que não são do nosso interesse
 * artist: string com o nome do primeiro cantor
 * track: string com o nome da musica
 * popularity: int com o valor de popularidade da musica
+Além disso inseri uma etapa para verificar se temos algum erro no campo played_at ou se existe algo nulo nos nossos dados
